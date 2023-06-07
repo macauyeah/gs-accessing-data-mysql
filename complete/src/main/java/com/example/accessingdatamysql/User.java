@@ -1,5 +1,9 @@
 package com.example.accessingdatamysql;
 
+import java.math.BigInteger;
+import java.util.Date;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,7 +14,12 @@ public class User {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
-
+	@Column(columnDefinition = "DECIMAL(37, 0)")
+	private BigInteger bigId;
+	@Column(columnDefinition = "VARCHAR(512)")
+	private String str512;
+	private Date utilDate;
+	private java.sql.Date sqlDate;
 	private String name;
 
 	private String email;
@@ -38,4 +47,38 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+	public Date getUtilDate() {
+		return utilDate;
+	}
+
+	public void setUtilDate(Date utilDate) {
+		this.utilDate = utilDate;
+	}
+
+	public java.sql.Date getSqlDate() {
+		return sqlDate;
+	}
+
+	public void setSqlDate(java.sql.Date sqlDate) {
+		this.sqlDate = sqlDate;
+	}
+
+	public BigInteger getBigId() {
+		return bigId;
+	}
+
+	public void setBigId(BigInteger bigId) {
+		this.bigId = bigId;
+	}
+
+	public String getStr512() {
+		return str512;
+	}
+
+	public void setStr512(String str512) {
+		this.str512 = str512;
+	}
+
+	
 }
